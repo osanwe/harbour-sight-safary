@@ -11,9 +11,12 @@ Page {
     Map {
         id: map
         anchors.fill: parent
-        center: QtPositioning.coordinate(55.7542, 37.6221)
-        zoomLevel: 14
         plugin: mapPlugin
+
+        Component.onCompleted: {
+            zoomLevel = 14
+            center = QtPositioning.coordinate(55.7542, 37.6221)
+        }
     }
 
     Plugin {
