@@ -13,14 +13,37 @@ Page {
         anchors.fill: parent
         plugin: mapPlugin
 
+        MapPolyline {
+            id: mapPolylineRoute
+            line.color: 'green'
+            line.width: 3
+        }
+
         Component.onCompleted: {
-            zoomLevel = 14
-            center = QtPositioning.coordinate(55.7542, 37.6221)
+            map.zoomLevel = 14
+            map.center = QtPositioning.coordinate(55.7542, 37.6221)
+
+            mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7542, 37.6221))
+            mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7542, 37.6221))
+            mapRouteModel.update()
         }
     }
 
     Plugin {
         id: mapPlugin
         name: "osmscoutoffline"
+    }
+
+    RouteQuery {
+        id: mapRouteQuery
+    }
+
+    RouteModel {
+        id: mapRouteModel
+        plugin: mapPlugin
+        query: mapRouteQuery
+        autoUpdate: false
+
+        onRoutesChanged: mapPolylineRoute.path = mapRouteModel.get(0).path
     }
 }
