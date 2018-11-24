@@ -75,6 +75,7 @@ Page {
                         text: qsTr("Navigate")
                         enabled: firstAddress.text != "" && secondAddress.text != ""
                         onClicked: {
+                            routeLoadingIndicator.running = true
                             mapRouteQuery.addWaypoint(startCoords)
                             mapRouteQuery.addWaypoint(endCoords)
                             mapRouteModel.update()
@@ -180,6 +181,14 @@ Page {
         }
     }
 
+    BusyIndicator {
+        id: routeLoadingIndicator
+
+        anchors.centerIn: parent
+        size: BusyIndicatorSize.Large
+        running: false
+    }
+
     Plugin {
         id: mapPlugin
         name: "osmscoutoffline"
@@ -195,7 +204,10 @@ Page {
         query: mapRouteQuery
         autoUpdate: false
 
-        onRoutesChanged: mapPolylineRoute.path = mapRouteModel.get(0).path
+        onRoutesChanged: {
+            routeLoadingIndicator.running = false
+            mapPolylineRoute.path = mapRouteModel.get(0).path
+        }
     }
 
     PositionSource {
