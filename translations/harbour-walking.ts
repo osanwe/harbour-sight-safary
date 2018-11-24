@@ -9,4 +9,15 @@ Sight Safary</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>FirstPage</name>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
