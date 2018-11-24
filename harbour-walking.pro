@@ -24,7 +24,8 @@ DISTFILES += qml/harbour-walking.qml \
     rpm/harbour-walking.spec \
     rpm/harbour-walking.yaml \
     translations/*.ts \
-    harbour-walking.desktop
+    harbour-walking.desktop \
+    qml/views/PointDialog.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

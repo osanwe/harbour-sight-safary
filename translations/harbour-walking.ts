@@ -12,14 +12,6 @@ Sight Safary</source>
 <context>
     <name>FirstPage</name>
     <message>
-        <source>From</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>From:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -33,6 +25,17 @@ Sight Safary</source>
     </message>
     <message>
         <source>Navigate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PointDialog</name>
+    <message>
+        <source>From</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

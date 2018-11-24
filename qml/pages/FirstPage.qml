@@ -1,7 +1,10 @@
 import QtQuick 2.0
 import QtLocation 5.0
 import QtPositioning 5.0
+
 import Sailfish.Silica 1.0
+
+import "../views"
 
 Page {
     id: page
@@ -120,68 +123,17 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    if (choiceDialog.visible) choiceDialog.visible = false
+                    if (choosePointDialog.visible) choosePointDialog.visible = false
                     else {
                         coordinate = map.toCoordinate(Qt.point(mouse.x, mouse.y))
                         map.center = coordinate
-                        choiceDialog.visible = true
+                        choosePointDialog.visible = true
                     }
                 }
             }
 
-            Rectangle {
-                id: choiceDialog
-                visible: false
-                anchors.centerIn: parent
-                width: 2 * Theme.buttonWidthSmall + 3 * Theme.paddingMedium
-                height: choiceDialogContent.height + 2 * Theme.paddingMedium
-                radius: 10
-                color: "#EC1F1F1F"
-
-                Column {
-                    id: choiceDialogContent
-                    anchors.centerIn: parent
-                    width: parent.width
-                    spacing: Theme.paddingMedium
-
-                    Label {
-                        id: addressLabel
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: parent.width - 2 * Theme.paddingMedium
-                        wrapMode: Text.WordWrap
-                        text: coordinate.latitude + ", " + coordinate.longitude
-                    }
-
-                    Row {
-                        id: buttonsRow
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        spacing: Theme.paddingMedium
-
-                        Button {
-                            width: Theme.buttonWidthSmall
-                            text: qsTr("From")
-                            onClicked: {
-                                firstAddress.text = coordinate.latitude + ", " + coordinate.longitude
-                                startCoords = coordinate
-                                markerStart.coordinate = coordinate
-                                markerStart.visible = true
-                                choiceDialog.visible = false
-                            }
-                        }
-
-                        Button {
-                            width: Theme.buttonWidthSmall
-                            text: qsTr("To")
-                            onClicked: {
-                                secondAddress.text = coordinate.latitude + ", " + coordinate.longitude
-                                endCoords = coordinate
-                                markerFinish.coordinate = coordinate
-                                markerFinish.visible = true
-                                choiceDialog.visible = false
-                            }
-                        }
-                    }
-                }
+            PointDialog {
+                id: choosePointDialog
             }
 
             Component.onCompleted: {
