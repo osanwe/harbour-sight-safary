@@ -20,6 +20,65 @@ Page {
 
         background: Item {
             anchors.fill: parent
+
+            Column {
+                anchors.centerIn: parent
+                width: parent.width
+                spacing: Theme.paddingMedium
+
+                Label {
+                    anchors.left: parent.left
+                    anchors.leftMargin: Theme.horizontalPageMargin
+                    text: qsTr("From:")
+                    font.bold: true
+                }
+
+                Label {
+                    id: firstAddress
+                    width: parent.width - 2 * Theme.horizontalPageMargin
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    wrapMode: Text.WordWrap
+                }
+
+                Label {
+                    anchors.left: parent.left
+                    anchors.leftMargin: Theme.horizontalPageMargin
+                    text: qsTr("To:")
+                    font.bold: true
+                }
+
+                Label {
+                    id: secondAddress
+                    width: parent.width - 2 * Theme.horizontalPageMargin
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    wrapMode: Text.WordWrap
+                }
+
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: Theme.paddingMedium
+
+                    Button {
+                        width: Theme.buttonWidthSmall
+                        text: qsTr("Me")
+                        onClicked: {
+                            map.zoomLevel = 17
+                            map.center = positionSource.position.coordinate
+                        }
+                    }
+
+                    Button {
+                        width: Theme.buttonWidthSmall
+                        text: qsTr("Navigate")
+                        enabled: firstAddress.text != "" && secondAddress.text != ""
+                        onClicked: {
+                            mapRouteQuery.addWaypoint(startCoords)
+                            mapRouteQuery.addWaypoint(endCoords)
+                            mapRouteModel.update()
+                        }
+                    }
+                }
+            }
         }
 
         Map {
@@ -102,6 +161,7 @@ Page {
                             width: Theme.buttonWidthSmall
                             text: qsTr("From")
                             onClicked: {
+                                firstAddress.text = coordinate.latitude + ", " + coordinate.longitude
                                 startCoords = coordinate
                                 markerStart.coordinate = coordinate
                                 markerStart.visible = true
@@ -113,6 +173,7 @@ Page {
                             width: Theme.buttonWidthSmall
                             text: qsTr("To")
                             onClicked: {
+                                secondAddress.text = coordinate.latitude + ", " + coordinate.longitude
                                 endCoords = coordinate
                                 markerFinish.coordinate = coordinate
                                 markerFinish.visible = true
@@ -126,10 +187,6 @@ Page {
             Component.onCompleted: {
                 map.zoomLevel = 14
                 map.center = QtPositioning.coordinate(55.7542, 37.6221)
-
-                mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7708, 37.5944))
-                mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7513, 37.6286))
-                mapRouteModel.update()
             }
         }
     }
