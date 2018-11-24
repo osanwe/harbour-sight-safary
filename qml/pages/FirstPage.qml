@@ -120,6 +120,18 @@ Page {
                     }
             }
 
+            MapQuickItem {
+                visible: true
+                anchorPoint.x: userImage.width / 2
+                anchorPoint.y: userImage.height / 2
+                coordinate: positionSource.position.coordinate
+
+                sourceItem: Image {
+                        id: userImage
+                        source: "image://theme/icon-m-person?" + Theme.highlightColor
+                    }
+            }
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -184,5 +196,11 @@ Page {
         autoUpdate: false
 
         onRoutesChanged: mapPolylineRoute.path = mapRouteModel.get(0).path
+    }
+
+    PositionSource {
+        id: positionSource
+        updateInterval: 1000
+        active: true
     }
 }
