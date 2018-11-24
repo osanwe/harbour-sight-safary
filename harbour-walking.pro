@@ -19,7 +19,6 @@ SOURCES += src/harbour-walking.cpp
 DISTFILES += qml/harbour-walking.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/harbour-walking.changes.in \
     rpm/harbour-walking.changes.run.in \
     rpm/harbour-walking.spec \
@@ -37,4 +36,4 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-walking-de.ts
+#TRANSLATIONS += translations/harbour-walking-de.ts

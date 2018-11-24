@@ -23,8 +23,8 @@ Page {
             map.zoomLevel = 14
             map.center = QtPositioning.coordinate(55.7542, 37.6221)
 
-            mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7542, 37.6221))
-            mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7542, 37.6221))
+            mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7708, 37.5944))
+            mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7513, 37.6286))
             mapRouteModel.update()
         }
     }
