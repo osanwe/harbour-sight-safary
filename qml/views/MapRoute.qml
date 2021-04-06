@@ -27,13 +27,19 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.5
+import QtLocation 5.0
+import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
-import "pages"
 
-ApplicationWindow
-{
-    initialPage: Component { MainPage { } }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+MapPolyline {
+    line.color: Qt.rgba(0.8, 0.1, 0.1, 1.0)
+    line.width: 5
+
+    layer.enabled: true
+    layer.effect: Glow {
+        radius: Theme.paddingSmall / 2
+        samples: radius * 2
+        color: Qt.rgba(1.0, 1.0, 1.0, 1.0)
+    }
 }

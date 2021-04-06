@@ -27,13 +27,22 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.5
+import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
-import "pages"
 
-ApplicationWindow
-{
-    initialPage: Component { MainPage { } }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+IconButton {
+    property alias border: background.border
+
+    Rectangle {
+        id: background
+        anchors.fill: parent
+        radius: Theme.paddingMedium
+        color: Theme.rgba(Theme.darkPrimaryColor, Theme.opacityOverlay)
+        border {
+            width: 1
+            color: Theme.rgba(palette.primaryColor, Theme.highlightBackgroundOpacity)
+        }
+        z: -1
+    }
 }
