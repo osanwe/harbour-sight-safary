@@ -3,10 +3,5 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=harbour-walking
 Exec=harbour-walking
-Name=harbour-walking
-# translation example:
-# your app name in German locale (de)
-#
-# Remember to comment out the following line, if you do not want to use
-# a different app name in German locale (de).
-# Name[de]=harbour-walking
+Name=Harbour Walking
+Name[ru]=Harbour Walking

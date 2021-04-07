@@ -27,13 +27,35 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.5
 import Sailfish.Silica 1.0
-import "pages"
 
-ApplicationWindow
-{
-    initialPage: Component { MainPage { } }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+Item {
+    property alias key: key.text
+    property alias value: value.text
+
+    width: row.implicitWidth
+    height: row.implicitHeight
+
+    Row {
+        id: row
+
+        anchors.fill: parent
+        spacing: Theme.paddingMedium
+
+        Label {
+            id: key
+
+            color: Theme.secondaryColor
+            font.pixelSize: Theme.fontSizeSmallBase
+        }
+
+        Label {
+            id: value
+
+            color: Theme.primaryColor
+            truncationMode: TruncationMode.Fade
+            font.pixelSize: Theme.fontSizeSmallBase
+        }
+    }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en">
+<TS version="2.1" language="ru">
 <context>
     <name>CoverPage</name>
     <message>
         <source>Walk with
 Sight Safary</source>
-        <translation>Walk with
+        <translation>Прогулка с
 Sight Safary</translation>
     </message>
 </context>
@@ -14,27 +14,27 @@ Sight Safary</translation>
     <name>MainPage</name>
     <message>
         <source>My position</source>
-        <translation>My position</translation>
+        <translation>Моя позиця</translation>
     </message>
     <message>
         <source>Route</source>
-        <translation>Route</translation>
+        <translation>Маршрут</translation>
     </message>
     <message>
         <source>Route from:</source>
-        <translation>Route from:</translation>
+        <translation>Маршрут от:</translation>
     </message>
     <message>
         <source>Route to:</source>
-        <translation>Route to:</translation>
+        <translation>Маршрут до:</translation>
     </message>
     <message>
         <source> - latitude:</source>
-        <translation> - latitude:</translation>
+        <translation> - широта:</translation>
     </message>
     <message>
         <source> - longitude:</source>
-        <translation> - longitude:</translation>
+        <translation> - долгота:</translation>
     </message>
     <message>
         <source>...</source>
@@ -45,19 +45,19 @@ Sight Safary</translation>
     <name>PointDialog</name>
     <message>
         <source>From</source>
-        <translation>From</translation>
+        <translation>От</translation>
     </message>
     <message>
         <source>To</source>
-        <translation>To</translation>
+        <translation>До</translation>
     </message>
     <message>
         <source>Latitude:</source>
-        <translation>Latitude:</translation>
+        <translation>Широта:</translation>
     </message>
     <message>
         <source>Longitude:</source>
-        <translation>Longitude:</translation>
+        <translation>Долгота</translation>
     </message>
 </context>
 </TS>

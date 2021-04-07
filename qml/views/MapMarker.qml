@@ -27,13 +27,29 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.5
+import QtLocation 5.0
+import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
-import "pages"
 
-ApplicationWindow
-{
-    initialPage: Component { MainPage { } }
-    cover: Qt.resolvedUrl("cover/CoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+MapQuickItem {
+    property alias source: markerImage.source
+
+    anchorPoint {
+        x: markerImage.width / 2
+        y: markerImage.height
+    }
+    sourceItem: Image {
+        id: markerImage
+
+        antialiasing: true
+        width: Theme.iconSizeSmallPlus
+        height: Theme.iconSizeSmallPlus
+    }
+    layer.enabled: true
+    layer.effect: Glow {
+        radius: Theme.paddingSmall / 2
+        samples: radius * 2
+        color: Qt.rgba(1.0, 1.0, 1.0, 1.0)
+    }
 }
