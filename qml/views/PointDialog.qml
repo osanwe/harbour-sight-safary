@@ -50,14 +50,8 @@ Rectangle {
         spacing: Theme.paddingMedium
         width: parent.width
 
-        LineTextField {
-            key: qsTr("Latitude:")
-            value: pressCoords.latitude
-        }
-
-        LineTextField {
-            key: qsTr("Longitude:")
-            value: pressCoords.longitude
+        CoordField {
+            coordinate: pressCoords
         }
 
         Row {
@@ -69,9 +63,7 @@ Rectangle {
                 width: Theme.buttonWidthSmall
 
                 onClicked: {
-                    startLatitude.value = pressCoords.latitude
-                    startLongitude.value = pressCoords.longitude
-                    startCoords = pressCoords
+                    startCoordField.coordinate = pressCoords
                     markerStart.coordinate = pressCoords
                     markerStart.visible = true
                     choiceDialog.visible = false
@@ -83,9 +75,7 @@ Rectangle {
                 width: Theme.buttonWidthSmall
 
                 onClicked: {
-                    endLatitude.value = pressCoords.latitude
-                    endLongitude.value = pressCoords.longitude
-                    endCoords = pressCoords
+                    endCoordField.coordinate = pressCoords
                     markerFinish.coordinate = pressCoords
                     markerFinish.visible = true
                     choiceDialog.visible = false

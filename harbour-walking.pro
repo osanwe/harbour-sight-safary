@@ -28,6 +28,7 @@
 #############################################################################
 
 TARGET = harbour-walking
+QT += positioning
 
 CONFIG += sailfishapp
 
@@ -38,16 +39,15 @@ DISTFILES += \
     qml/harbour-walking.qml \
     qml/cover/CoverPage.qml \
     qml/pages/MainPage.qml \
-    qml/views/LineTextField.qml \
+    qml/views/InfoField.qml \
+    qml/views/CoordField.qml \
     qml/views/PointDialog.qml \
     qml/views/MapButton.qml \
     qml/views/MapMarker.qml \
     qml/views/MapRoute.qml \
     qml/images/harbour-sight-safary.svg \
     qml/images/location.svg \
-    qml/images/location-stroked.svg \
     qml/images/mylocation.svg \
-    qml/images/mylocation-stroked.svg \
     qml/images/zoom-minus.svg \
     qml/images/zoom-plus.svg \
     rpm/harbour-walking.changes.in \

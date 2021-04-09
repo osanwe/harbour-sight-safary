@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
+    <name>CoordField</name>
+    <message>
+        <source>latitude:</source>
+        <translation>широта:</translation>
+    </message>
+    <message>
+        <source>longitude:</source>
+        <translation>долгота:</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>Walk with
@@ -28,18 +43,6 @@ Sight Safary</translation>
         <source>Route to:</source>
         <translation>Маршрут до:</translation>
     </message>
-    <message>
-        <source> - latitude:</source>
-        <translation> - широта:</translation>
-    </message>
-    <message>
-        <source> - longitude:</source>
-        <translation> - долгота:</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
 </context>
 <context>
     <name>PointDialog</name>
@@ -50,14 +53,6 @@ Sight Safary</translation>
     <message>
         <source>To</source>
         <translation>До</translation>
-    </message>
-    <message>
-        <source>Latitude:</source>
-        <translation>Широта:</translation>
-    </message>
-    <message>
-        <source>Longitude:</source>
-        <translation>Долгота</translation>
     </message>
 </context>
 </TS>

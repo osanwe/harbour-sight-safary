@@ -28,18 +28,46 @@
 ****************************************************************************/
 
 import QtQuick 2.5
-import QtLocation 5.0
-import QtGraphicalEffects 1.0
+import QtPositioning 5.0
 import Sailfish.Silica 1.0
 
-MapPolyline {
-    line.color: Qt.rgba(0.9, 0.3, 0.3, 1.0)
-    line.width: 5
+Item {
+    property var coordinate: QtPositioning.coordinate(NaN, NaN)
 
-    layer.enabled: true
-    layer.effect: Glow {
-        radius: Theme.paddingSmall / 2
-        samples: radius * 2
-        color: Qt.rgba(0.0, 0.0, 0.0, 1.0)
+    width: row.implicitWidth
+    height: row.implicitHeight
+
+    Row {
+        id: row
+
+        anchors.fill: parent
+        spacing: Theme.paddingSmall
+
+        Image {
+            id: image
+
+            height: column.implicitHeight
+            fillMode: Image.PreserveAspectFit
+            source: "../images/location.svg"
+            sourceSize.height: image.height - Theme.paddingSmall * 2
+        }
+
+        Column {
+            id: column
+
+            InfoField {
+                id: latitude
+
+                key: qsTr("latitude:")
+                value: coordinate.isValid ? coordinate.latitude : qsTr("...")
+            }
+
+            InfoField {
+                id: longitude
+
+                key: qsTr("longitude:")
+                value: coordinate.isValid ? coordinate.longitude : qsTr("...")
+            }
+        }
     }
 }

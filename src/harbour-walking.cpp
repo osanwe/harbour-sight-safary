@@ -28,9 +28,12 @@
 ****************************************************************************/
 
 #include <QtQuick>
+#include <QtPositioning>
 #include <sailfishapp.h>
 
 int main(int argc, char *argv[])
 {
+    qRegisterMetaType<QGeoPositionInfo>("QGeoPositionInfo");
+
     return SailfishApp::main(argc, argv);
 }

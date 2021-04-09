@@ -38,10 +38,8 @@ Page {
 
     property bool mapFollowing: false
     property var mapGpsPosition: positionSource.position.coordinate
-    property var mapCenterPosition: QtPositioning.coordinate(0, 0)
-    property var pressCoords: QtPositioning.coordinate(0, 0)
-    property var startCoords: QtPositioning.coordinate(0, 0)
-    property var endCoords: QtPositioning.coordinate(0, 0)
+    property var mapCenterPosition: QtPositioning.coordinate(NaN, NaN)
+    property var pressCoords: QtPositioning.coordinate(NaN, NaN)
 
     allowedOrientations: Orientation.Portrait
 
@@ -72,18 +70,8 @@ Page {
                     font.bold: true
                 }
 
-                LineTextField {
-                    id: startLatitude
-
-                    key: qsTr(" - latitude:")
-                    value: qsTr("...")
-                }
-
-                LineTextField {
-                    id: startLongitude
-
-                    key: qsTr(" - longitude:")
-                    value: qsTr("...")
+                CoordField {
+                    id: startCoordField
                 }
 
                 Label {
@@ -91,18 +79,8 @@ Page {
                     font.bold: true
                 }
 
-                LineTextField {
-                    id: endLatitude
-
-                    key: qsTr(" - latitude:")
-                    value: qsTr("...")
-                }
-
-                LineTextField {
-                    id: endLongitude
-
-                    key: qsTr(" - longitude:")
-                    value: qsTr("...")
+                CoordField {
+                    id: endCoordField
                 }
 
                 Row {
@@ -119,13 +97,12 @@ Page {
 
                     Button {
                         text: qsTr("Route")
-                        enabled: startLatitude.text !== "" && startLongitude.text !== ""
-                                 && endLatitude.text !== "" && endLongitude.text !== ""
+                        enabled: startCoordField.coordinate.isValid && endCoordField.coordinate.isValid
                         onClicked: {
                             routeLoadingIndicator.running = true
                             mapRouteQuery.clearWaypoints()
-                            mapRouteQuery.addWaypoint(startCoords)
-                            mapRouteQuery.addWaypoint(endCoords)
+                            mapRouteQuery.addWaypoint(startCoordField.coordinate)
+                            mapRouteQuery.addWaypoint(endCoordField.coordinate)
                             mapRouteModel.update()
                         }
                     }
@@ -197,7 +174,6 @@ Page {
                 }
             }
             Component.onCompleted: map.initMapCenter()
-            onZoomLevelChanged: console.log(zoomLevel)
 
             MapRoute {
                 id: mapRoute
@@ -207,20 +183,20 @@ Page {
                 id: markerStart
 
                 visible: false
-                source: "../images/location-stroked.svg"
+                source: "../images/location.svg"
             }
 
             MapMarker {
                 id: markerFinish
 
                 visible: false
-                source: "../images/location-stroked.svg"
+                source: "../images/location.svg"
             }
 
             MapMarker {
                 coordinate: mapGpsPosition
                 visible: mapGpsPosition.isValid
-                source: "../images/mylocation-stroked.svg"
+                source: "../images/mylocation.svg"
             }
 
             Column {
@@ -256,6 +232,7 @@ Page {
                     rightMargin: Theme.horizontalPageMargin
                 }
                 icon.source: "image://theme/icon-m-menu"
+                highlighted: drawer.open
                 onClicked: drawer.open ? drawer.hide() : drawer.show()
             }
 
