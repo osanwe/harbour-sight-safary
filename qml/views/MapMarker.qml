@@ -50,6 +50,6 @@ MapQuickItem {
     layer.effect: Glow {
         radius: Theme.paddingSmall / 2
         samples: radius * 2
-        color: Qt.rgba(1.0, 1.0, 1.0, 1.0)
+        color: Qt.rgba(0.0, 0.0, 0.0, 1.0)
     }
 }
