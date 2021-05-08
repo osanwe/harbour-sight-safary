@@ -1,6 +1,6 @@
 # Walk with Sight Safary
 
-It is a Sailfish OS application for building beautiful routes.
+It is a Sailfish OS / Aurora OS application for building beautiful routes.
 It uses custom Qt Geo Service [plugin](https://github.com/osanwe/qtgeoservices-osmscoutoffline)
 and [Sight Safari](https://sightsafari.city/) API.
 
